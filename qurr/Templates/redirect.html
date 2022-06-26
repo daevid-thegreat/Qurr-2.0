@@ -1,0 +1,11 @@
+{% extends 'Base.html' %}
+
+
+{% block content %}
+<div class="container" style="justify-content: center;">
+      <h2>URL: "{{ link.url }}"</h2>
+
+        <a href="{{ link.url }}" target="_blank"><button type="button" class="btn btn-primary">Go To Website</button></a>  
+</div>
+        
+{% endblock content %}

@@ -1,0 +1,33 @@
+{% extends 'Base.html' %}
+
+{% block content %}
+<div class="container" style="justify-content: center;">
+    <div class="alert alert-primary" role="alert">
+    <p> Your shortened URL is
+        <input  type="text" value="http://127.0.0.1:8000/redirect/{{ shortcode }}" id="shorturl" >
+    </p>
+
+<button class="btn btn-success" onclick="myFunction()">Copy url</button>
+</div>
+
+<script>
+    function myFunction() {
+  /* Get the text field */
+  var copyText = document.getElementById("shorturl");
+
+  /* Select the text field */
+  copyText.select();
+  copyText.setSelectionRange(0, 99999); /* For mobile devices */
+
+  /* Copy the text inside the text field */
+  document.execCommand("copy");
+
+  /* Alert the copied text */
+  alert("Copied your shortened URL: " + copyText.value);
+}
+</script>
+{% endblock content %}
+
+
+    </p>
+    </div>

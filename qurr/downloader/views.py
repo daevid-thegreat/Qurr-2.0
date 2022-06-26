@@ -22,8 +22,9 @@ def download_done(request, resolution):
     global url
     homedir = os.path.expanduser("~")
     dirs = homedir + '/Downloads'
+    video = YouTube(url)
     if request.method == "POST":
-        YouTube(url).streams.get_by_resolution(resolution).download(dirs)
+        video.streams.get_by_resolution(resolution).download(dirs)
         return render(request, 'downloaddone.html')
     else:
         return render(request, 'index.html')   

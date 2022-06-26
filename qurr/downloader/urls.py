@@ -1,9 +1,10 @@
 from django.urls import path
-from downloader.views import downloader, download_done
+from downloader.views import download, download_done, downloader
 
 app_name = 'downloader'
 
 urlpatterns = [
-    path('yt-downloader/', downloader),
-    path('downloaded/<resolution>/', download_done, name='download_done'),
+    path('yt-downloader/', downloader, name='downloader'),
+    path('download/<resolution>/', download_done, name='download_done'),
+    path('yt-_downloader/download/', download, name='download  video'),
 ]

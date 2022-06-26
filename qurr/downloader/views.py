@@ -4,19 +4,19 @@ import os
 # Create your views here.
 
 
-
 def downloader(request):
-    global url
-    if request.method == 'POST':
-        url = request.POST['youtube-url']
-        yt = YouTube(url)
-        title = yt.title 
-        video = []
-        video = yt.streams.filter(progressive=True).all()
-        embed = url.replace("watch?v=", "embed/")
-        context = {'title':title, 'video':video, 'embed':embed}
-        return render(request,'download.html', context)
     return render(request, 'ytdownloader.html')
+
+def download(request):
+    global url
+    url = request.POST['youtube-url']
+    yt = YouTube(url)
+    title = yt.title 
+    video = []
+    video = yt.streams.filter(progressive=True).all()
+    embed = url.replace("watch?v=", "embed/")
+    context = {'title':title, 'video':video, 'embed':embed}
+    return render(request,'download.html', context)
     
 def download_done(request, resolution):
     global url

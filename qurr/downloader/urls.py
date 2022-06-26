@@ -6,5 +6,5 @@ app_name = 'downloader'
 urlpatterns = [
     path('yt-downloader/', downloader, name='downloader'),
     path('download/<resolution>/', download_done, name='download_done'),
-    path('yt-_downloader/download/', download, name='download  video'),
+    path('yt-downloader/download/', download, name='download  video'),
 ]

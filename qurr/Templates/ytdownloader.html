@@ -2,7 +2,6 @@
 
 {% block content %}
    <form method="get" action="download/" class="row py-5 px-5">  
-     {% csrf_token %}
         <div class=" col-sm-8"><input type="url" name="youtube-url" class="form-control" placeholder="youtube video link" aria-label="url"></div>
         <button type="submit" class="btn btn-primary col-sm-3">
     Download Video

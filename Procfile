@@ -1,1 +1,1 @@
-web: gunicorn qurr.wsgi
+web: gunicorn --pythonpath qurr qurr.wsgi --log-file -

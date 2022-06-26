@@ -19,7 +19,6 @@ def downloader(request):
     return render(request, 'ytdownloader.html')
     
 def download_done(request, resolution):
-    
     homedir = os.path.expanduser("~")
     dirs = homedir + '/Downloads'
     if request.method == "POST":

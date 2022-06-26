@@ -23,7 +23,8 @@ def download_done(request, resolution):
     dirs = homedir + '/Downloads'
     video = YouTube(link)
     if request.method == "POST":
-        video.streams.get_by_resolution(resolution).download(dirs)
+        v = video.streams.get_by_resolution(resolution)
+        v.download(dirs)
         return render(request, 'downloaddone.html')
     else:
         return render(request, 'index.html')   

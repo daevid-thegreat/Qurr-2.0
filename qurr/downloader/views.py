@@ -1,8 +1,8 @@
 from django.shortcuts import redirect, render
 from pytube import YouTube
 import os
+from django_globals import globals
 # Create your views here.
-
 
 def downloader(request):
     return render(request, 'ytdownloader.html')

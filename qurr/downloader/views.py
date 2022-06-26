@@ -9,7 +9,7 @@ def downloader(request):
 
 def download(request):
     global url
-    url = request.POST['youtube-url']
+    url = request.GET.get('url')
     yt = YouTube(url)
     title = yt.title 
     video = []

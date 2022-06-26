@@ -20,7 +20,7 @@ def download(request):
         dirs = homedir + '/Downloads'
         resolution = request.POST.get('resolution')
         yt.streams.get_by_resolution(resolution).download(dirs)
-        return redirect('download_done')
+        return redirect('/download_done')
     return render(request,'download.html', context)
     
 def download_done(request):

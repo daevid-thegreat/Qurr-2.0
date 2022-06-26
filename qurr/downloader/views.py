@@ -8,6 +8,7 @@ def downloader(request):
     return render(request, 'ytdownloader.html')
 
 def download(request):
+    global link
     link = request.GET.get('url')
     yt = YouTube(link)
     title = yt.title 
@@ -18,7 +19,6 @@ def download(request):
     return render(request,'download.html', context)
     
 def download_done(request, resolution):
-    global link
     homedir = os.path.expanduser("~")
     dirs = homedir + '/Downloads'
     video = YouTube(link)

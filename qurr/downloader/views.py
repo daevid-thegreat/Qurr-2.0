@@ -6,8 +6,8 @@ import os
 
 
 def downloader(request):
+    global url
     if request.method == 'POST':
-        global url
         url = request.POST['youtube-url']
         yt = YouTube(url)
         title = yt.title 
@@ -19,6 +19,7 @@ def downloader(request):
     return render(request, 'ytdownloader.html')
     
 def download_done(request, resolution):
+    global url
     homedir = os.path.expanduser("~")
     dirs = homedir + '/Downloads'
     if request.method == "POST":

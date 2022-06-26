@@ -12,7 +12,7 @@ def download(request):
     yt = YouTube(link)
     title = yt.title 
     video = []
-    video = yt.streams.filter(progressive=True).all()
+    video = yt.streams.filter(progressive=True)
     embed = link.replace("watch?v=", "embed/")
     context = {'title':title, 'video':video, 'embed':embed}
     if request.method == 'POST':

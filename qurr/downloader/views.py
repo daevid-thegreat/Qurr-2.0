@@ -8,21 +8,20 @@ def downloader(request):
     return render(request, 'ytdownloader.html')
 
 def download(request):
-    global url
-    url = request.GET.get('url')
-    yt = YouTube(url)
+    link = request.GET.get('url')
+    yt = YouTube(link)
     title = yt.title 
     video = []
     video = yt.streams.filter(progressive=True).all()
-    embed = url.replace("watch?v=", "embed/")
+    embed = link.replace("watch?v=", "embed/")
     context = {'title':title, 'video':video, 'embed':embed}
     return render(request,'download.html', context)
     
 def download_done(request, resolution):
-    global url
+    global link
     homedir = os.path.expanduser("~")
     dirs = homedir + '/Downloads'
-    video = YouTube(url)
+    video = YouTube(link)
     if request.method == "POST":
         video.streams.get_by_resolution(resolution).download(dirs)
         return render(request, 'downloaddone.html')

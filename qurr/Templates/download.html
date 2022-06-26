@@ -55,7 +55,7 @@
       <td>{{ x.filesize|div:1000000|floatformat }} MB</td>
       <td>{{x.type}}</td>
       <td>
-        <form action="{% url 'downloader:download_done' x.resolution %}" method="post">
+        <form method="post">
           {% csrf_token %}
         <button type="submit" class="btn btn-success">Download</button>
       </form>
